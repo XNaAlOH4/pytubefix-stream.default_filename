@@ -895,9 +895,9 @@ class YouTube:
             contents = self.vid_details['contents']
             results = contents[list(contents.keys())[0]]['results']['results']['contents']
         except Exception as e:
-            raise exceptions.PyTubeFixError(
+            raise exceptions.PytubeFixError(
                     (
-                        f'Exception: accessing vid_details_content of {self.watch_url} in {self.client} and trying to use key in {contents.keys()}'
+                        f'Exception: accessing vid_details_content of {self.watch_url} in {self.client}'
                     )
             ) from e
         return results
@@ -1026,7 +1026,7 @@ class YouTube:
 
             return ''.join([char for char in likes if char.isdigit()])
         except (KeyError, IndexError) as e:
-            raise exceptions.PyTubeFixError(
+            raise exceptions.PytubeFixError(
                     (
                         f'Exception: accessing likes of {self.watch_url} in {self.client}'
                     )

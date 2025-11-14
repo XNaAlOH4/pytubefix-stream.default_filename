@@ -212,6 +212,7 @@ class Channel(Playlist):
                 yield obj
 
     def videos_generator(self):
+        #print("Vid gen")
         for url in self.video_urls:
             yield url
 
@@ -606,7 +607,7 @@ class Channel(Playlist):
         :rtype: List[YouTube]
         :returns: List of YouTube
         """
-        self.html_url = self.videos_url  # Set video tab
+        self.html_url = self.videos_url  # Set video tab 
         return DeferredGeneratorList(self.videos_generator())
 
     @property

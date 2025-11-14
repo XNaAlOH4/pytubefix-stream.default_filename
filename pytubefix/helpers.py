@@ -54,7 +54,10 @@ class DeferredGeneratorList:
             key_slice = slice(key, key + 1, 1)
 
         # Generate all elements up to the final item
+        #print(key)
+        #print(len(self._elements) < key_slice.stop)
         while len(self._elements) < key_slice.stop:
+            #print("Inside:")
             try:
                 next_item = next(self.gen)
             except StopIteration:
@@ -101,6 +104,7 @@ class DeferredGeneratorList:
         return self._elements[::-1]
 
     def generate_all(self):
+        print("Generate all called")
         """Generate all items."""
         while True:
             try:

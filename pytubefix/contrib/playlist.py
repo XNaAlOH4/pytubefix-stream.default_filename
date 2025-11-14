@@ -338,6 +338,7 @@ class Playlist(Sequence):
         :rtype: List[str]
         :returns: List of video URLs
         """
+        #print("URL gen")
         return DeferredGeneratorList(self.url_generator())
 
     def videos_generator(self):
